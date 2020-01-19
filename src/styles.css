@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-button-base {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}

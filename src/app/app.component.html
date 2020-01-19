@@ -1,0 +1,41 @@
+<mat-toolbar color="primary" class="main-toolbar">
+  
+  <span>Shopping Cart</span>
+
+  <span class="toolbar-spacer"></span>
+  
+  <span *ngIf="authenticated()" >
+
+    <a routerLink="/cart" mat-icon-button alt="Cart" title="Logout" >
+      <mat-icon class="toolbar-icon" >
+        shopping_cart
+      </mat-icon>
+    </a>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  
+    <mat-menu #menu="matMenu">  
+      
+      <button mat-menu-item (click)= "router.navigate(['/items']);" *ngIf="isAdmin()" >
+        <mat-icon>loyalty</mat-icon>
+        <span>Items</span>
+      </button>
+      
+      <button mat-menu-item (click)= "router.navigate(['/my-purchases']);" >
+        <mat-icon>account_balance_wallet</mat-icon>
+        <span>My Purchases</span>
+      </button>
+  
+      <button mat-menu-item (click)="sair()" >
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Log out</span>
+      </button>
+  
+    </mat-menu> 
+
+  </span> 
+
+</mat-toolbar>
+<router-outlet></router-outlet>

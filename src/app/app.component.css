@@ -1,0 +1,12 @@
+.toolbar-icon {
+  padding: 0 14px;
+}
+  
+.toolbar-spacer {
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+.main-toolbar {
+  margin-bottom: 20px;
+}

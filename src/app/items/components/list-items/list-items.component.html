@@ -1,0 +1,55 @@
+<a mat-raised-button routerLink="/items/new-item">
+    Add new Item
+</a>
+
+<form [formGroup]="form" fxLayoutAlign="center" novalidate>
+    <mat-form-field appearance="outline" style="width: 70%;"  >
+        <mat-label>Search</mat-label>
+        <input matInput formControlName="itemName" (keyup.enter)="showItems()"  >
+        <mat-icon matSuffix (click)="showItems()" style="cursor: pointer" >search</mat-icon>
+    </mat-form-field>
+</form>
+
+<mat-table #table [dataSource]="dataSource" 
+    matSort (matSortChange)="ordenar($event)">
+  
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.name }}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Price
+        </mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            {{ item.price | currency }}
+        </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+          <a routerLink="{{ '/items/edit-item/' + item.id }}"
+            ><mat-icon matTooltip="Edit item">create</mat-icon></a>
+          <a (click)="removeDialog(item.id)" 
+            style="cursor: pointer"><mat-icon matTooltip="Remove item">clear</mat-icon></a>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row 
+          *matHeaderRowDef="colunas"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+  </mat-table>
+  
+  <mat-paginator fxLayoutAlign="center" 
+    [length]="totalElements"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 15, 25]"
+    (page)="paginate($event)">
+  </mat-paginator>
+  
