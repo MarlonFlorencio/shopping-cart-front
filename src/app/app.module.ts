@@ -21,7 +21,6 @@ import {
 }  from './autenticacao';
 
 import { UserService } from './shared';
-
 import { SharedModule } from './shared/shared.module'
 
 
@@ -29,6 +28,11 @@ import {
   ItemsModule,
   ItemsRoutingModule
 } from './items'
+
+import {
+  ShoppingModule,
+  ShoppingRoutingModule
+} from './shopping'
 
 @NgModule({
   declarations: [
@@ -49,6 +53,8 @@ import {
     ItemsModule,
     ItemsRoutingModule,
     SharedModule,
+    ShoppingModule,
+    ShoppingRoutingModule,
 
     AppRoutingModule
   ],

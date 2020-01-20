@@ -18,20 +18,20 @@ export class AppComponent implements OnInit {
   }
 
   sair() {
-  	delete localStorage['token'];
-  	this.router.navigate(['/']);
+  	this.userService.deleteToken();
+  	this.router.navigate(['/login']);
   }
 
   authenticated(): boolean {
-    return this.userService.hasToken();
+    return !!this.userService.hasToken();
   }
 
   isAdmin(): boolean {
-    return this.userService.hasRole("ADMIN");
+    return this.userService.hasRole('ADMIN');
   }
 
   isUser(): boolean {
-    return this.userService.hasRole("USER");
+    return this.userService.hasRole('USER');
   }
 
 }

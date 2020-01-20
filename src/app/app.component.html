@@ -6,7 +6,7 @@
   
   <span *ngIf="authenticated()" >
 
-    <a routerLink="/cart" mat-icon-button alt="Cart" title="Logout" >
+    <a routerLink="/shop/cart" mat-icon-button alt="Cart" title="Logout" >
       <mat-icon class="toolbar-icon" >
         shopping_cart
       </mat-icon>
@@ -18,12 +18,12 @@
   
     <mat-menu #menu="matMenu">  
       
-      <button mat-menu-item (click)= "router.navigate(['/items']);" *ngIf="isAdmin()" >
+      <button mat-menu-item [routerLink]="['/items']" *ngIf="isAdmin()" >
         <mat-icon>loyalty</mat-icon>
         <span>Items</span>
       </button>
       
-      <button mat-menu-item (click)= "router.navigate(['/my-purchases']);" >
+      <button mat-menu-item [routerLink]="['/shop/purchases']" >
         <mat-icon>account_balance_wallet</mat-icon>
         <span>My Purchases</span>
       </button>

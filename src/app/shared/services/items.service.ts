@@ -55,9 +55,6 @@ export class ItemsService {
       '&pageSize=' + pageSize +
       '&propertyOrder=' + propertyOrder + 
       '&direction=' + direction;
-
-      console.log('findAll' + params);
-
     return this.http.get(url + params, this.httpUtil.headers());
   }
   
@@ -76,9 +73,6 @@ export class ItemsService {
       '&pageSize=' + pageSize +
       '&propertyOrder=' + propertyOrder + 
       '&direction=' + direction;
-
-      console.log('findByName' + params);
-  
     return this.http.get(url + params, this.httpUtil.headers());
   }
 

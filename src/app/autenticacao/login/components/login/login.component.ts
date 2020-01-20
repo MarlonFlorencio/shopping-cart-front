@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { Login } from '../../models';
 import { LoginService } from '../../services';
+import { UserService } from '../../../../shared';
 
 @Component({
   selector: 'app-login-pf',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder, 
     private snackBar: MatSnackBar,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private userService: UserService
   ){ }
 
   ngOnInit() {
@@ -43,25 +45,15 @@ export class LoginComponent implements OnInit {
     this.loginService.logar(login)
       .subscribe(
         data => {
-          //localStorage['token'] = data['data']['token'];
-          localStorage['token'] = data['token'];
-
-
-          
-
-          const usuarioData = JSON.parse(
-            //atob(data['data']['token'].split('.')[1]));
-            atob(data['token'].split('.')[1]));
-            console.log(usuarioData)
-
-          if (usuarioData.roles.indexOf('ADMIN') > -1) {
+          this.userService.setToken(data['token'])
+          if (this.userService.hasRole('ADMIN')) {
             this.router.navigate(['/items']);
           } else {
-            this.router.navigate(['/cart']);
+            this.router.navigate(['/shop']);
           }
         },
         err => {
-          let msg: string = "Tente novamente em instantes.";
+          let msg: string = "Please try again in a few moments.";
           if (err['status'] == 401) {
             msg = "Email/senha inválido(s)."
           }

@@ -33,11 +33,11 @@ import {
 import { SharedModule } from '../shared/shared.module';
 
 import { 
-  ListItemsComponent,
-  NewItemComponent,
-  EditItemComponent,
-  ItemsComponent,
-  ConfirmarDialog
+  CartComponent,
+  PurchaseComponent,
+  PurchasesComponent,
+  ShopComponent,
+  ShoppingComponent
 } from './components';
 
 @NgModule({
@@ -64,11 +64,11 @@ import {
     SharedModule
   ],
   declarations: [
-    ListItemsComponent,
-    NewItemComponent,
-    EditItemComponent,
-    ItemsComponent,
-    ConfirmarDialog
+    CartComponent,
+    PurchaseComponent,
+    PurchasesComponent,
+    ShopComponent,
+    ShoppingComponent
   ],
   providers: [
     ItemsService,
@@ -78,7 +78,7 @@ import {
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     AdminGuard,
     LoginGuard
-  ],
-  entryComponents: [ ConfirmarDialog ]
+  ]//,
+  //entryComponents: [ ConfirmarDialog ]
 })
-export class ItemsModule { }
+export class ShoppingModule { }

@@ -8,25 +8,27 @@ import {
 	ItemsComponent
 } from './components';
 
-import { AdminGuard } from '../shared';
+import { AdminGuard, LoginGuard } from '../shared';
 
 export const ItemsRoutes: Routes = [
 	{
 		path: 'items',
 		component: ItemsComponent,
-		canActivate: [ AdminGuard ],
 		children: [
 		  {
 			path: '', 
-			component: ListItemsComponent
+			component: ListItemsComponent,
+			canActivate: [ LoginGuard, AdminGuard ]
 		  },
 		  {
 			path: 'new-item', 
-			component: NewItemComponent 
+			component: NewItemComponent,
+			canActivate: [ LoginGuard, AdminGuard ],
 		  },
 		  {
 			path: 'edit-item/:itemId', 
-			component: EditItemComponent 
+			component: EditItemComponent,
+			canActivate: [ LoginGuard, AdminGuard ],
 		  }
 		]
 	}

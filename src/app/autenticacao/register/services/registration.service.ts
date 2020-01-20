@@ -13,9 +13,7 @@ export class RegistrationService {
   constructor(private http: HttpClient) { }
 
   register(registration: Registration): Observable<any> {
-      const pp: string = env.baseUrl + this.PATH;
-      console.log(pp)
-  	  return this.http.post(pp, registration);
+  	  return this.http.post(env.baseUrl + this.PATH, registration);
   }
 
 }

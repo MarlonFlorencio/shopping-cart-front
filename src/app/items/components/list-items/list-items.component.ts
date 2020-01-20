@@ -126,7 +126,7 @@ export class ListItemsComponent implements OnInit {
           this.showItems();
         },
         err => {
-          let msg: string = "Tente novamente em instantes.";
+          let msg: string = "Please try again in a few moments.";
           if (err.status == 400) {
             msg = err.error.errors.join(' ');
           }

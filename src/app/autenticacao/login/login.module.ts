@@ -18,6 +18,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent, LogarComponent } from './components';
 import { LoginService } from './services';
 
+
+import { UserService } from '../../shared';
+
+import { SharedModule } from '../../shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,14 +35,16 @@ import { LoginService } from './services';
     MatTooltipModule,
     MatIconModule,
     MatSnackBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule
   ],
   declarations: [
   	LoginComponent,
   	LogarComponent
   ],
   providers: [
-  	LoginService
+    LoginService,
+    UserService
   ]
 })
 export class LoginModule { }
