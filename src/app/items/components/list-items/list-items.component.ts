@@ -108,11 +108,11 @@ export class ListItemsComponent implements OnInit {
     this.showItems();
   }
 
-  removeDialog(lancamentoId: string) {  
+  removeDialog(itemId: string) {  
     const dialog = this.dialog.open(ConfirmarDialog, {});
     dialog.afterClosed().subscribe(result => {
       if (result) {
-        this.remove(lancamentoId);
+        this.remove(itemId);
       }
     });
   }
@@ -121,8 +121,8 @@ export class ListItemsComponent implements OnInit {
     this.itemsService.remove(itemId)
       .subscribe(
         data => {
-          const msg: string = "Item removido com sucesso!";
-          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          const msg: string = "Item removed";
+          this.snackBar.open(msg, "Success", { duration: 5000 });
           this.showItems();
         },
         err => {

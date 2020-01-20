@@ -68,8 +68,8 @@ export class EditItemComponent implements OnInit {
     this.itemsService.update(item)
       .subscribe(
         data => {
-          const msg: string = "Item updated with success!";
-          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          const msg: string = "Item updated";
+          this.snackBar.open(msg, "Success", { duration: 5000 });
           this.router.navigate(['/items']);
         },
         err => {

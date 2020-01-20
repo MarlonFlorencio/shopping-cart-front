@@ -46,8 +46,8 @@ export class NewItemComponent implements OnInit {
     this.itemsService.create(item)
       .subscribe(
         data => {
-          const msg: string = "Item created with success!";
-          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          const msg: string = "Item created";
+          this.snackBar.open(msg, "Success", { duration: 5000 });
           this.router.navigate(['/items']);
         },
         err => {

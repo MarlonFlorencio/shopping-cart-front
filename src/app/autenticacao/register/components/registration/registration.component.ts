@@ -44,7 +44,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         data => {
           const msg: string = "Realize o login para acessar o sistema.";
-          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          this.snackBar.open(msg, "Success", { duration: 5000 });
           this.router.navigate(['/login']);
         },
         err => {
