@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "12"
+sudo: false
+
+env:
+    global:
+      - secure: ipm0f9rnxl04RZIAcwQFyZu5fTUAIS/+Q8t5hU4Fyx9n3nO0izaqErz6K9F5vV66mofuDtUa32GUWCGrPu/HdmBwNi33Ra1tu06VkExLvtzNqxbGyoFhMNAb6+LHU9Ddl1bFlB2/gvek487aDshcz+1GR0YsMD6MbYMzoOpjGVvcEGDHpn9HpCLCymWheOdlv9ABla84F9gAAcPSkDP3bzSZJblbX48lrEL8SmnTnp2DoMKig/mWw0EjN5lvyPXiVBNxDqz2ikbONYpyUuKzQl8YQCp4A40Z8QfNxMHKsQvplGuIfFg4slXTbsnWIkKmZhlEJNivu9F280d/BFmbicq/a9X5zR18N8UUvj9INtT/nbErLE9MN/BB9wGtACQ4FwQh5YX8nSU3ZeDpkcZPzt/fAn0L5URlsJhCnAjLTtvyvC/QBuSaKxlFDkJd5CfSHRfRuhJRTSCiwKWN/BhnSDvqmn7pfq5IqMALM7QEnAkolPVbYb1I6dn4N0MQKcsBpMDnMxoaRPFpQko8KoJjAqRkGWwKGY+kQjOVWaACthM7iR4VoxtrSCCOnTiqAhXIXktiJIEboGiSSDFIyRTuEozjf5ik4nUQbeMZ54qfHdyzWKRaUVKkozZTHd2UHVnnretnGmoZBfiuB8WqNQ9KAPoMjeDvl9MbKTC4OR5M+c0=
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+    - node_modules
+
+deploy:
+  provider: heroku
+  skip_cleanup: true
+  keep-history: true
+  api-key:
+    secure: $HEROKU_API_KEY
+  app: shopping-cart-mf

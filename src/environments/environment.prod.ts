@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://dominio-api.com/',
-  baseApiUrl: 'https://dominio-api.com/api/'
+  baseUrl: 'https://shopping-cart-api-mf.herokuapp.com/',
+  baseApiUrl: 'https://shopping-cart-api-mf.herokuapp.com/api/'
 };
