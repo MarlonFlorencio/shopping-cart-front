@@ -1,7 +1,14 @@
 <h2 fxLayoutAlign="center">Items Registration</h2>
-<a mat-raised-button routerLink="/items/new-item">
-    Add new Item
-</a>
+
+
+<div fxLayoutAlign="center" >
+  <a mat-raised-button routerLink="/items/new-item" >
+    <mat-icon>library_add</mat-icon>
+    <span>&nbsp;Add Item</span>
+  </a>
+</div>
+
+<br/>
 
 <form [formGroup]="form" fxLayoutAlign="center" novalidate>
     <mat-form-field appearance="outline" style="width: 70%;"  >
@@ -35,10 +42,14 @@
       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let item">
-          <a routerLink="{{ '/items/edit-item/' + item.id }}"
-            ><mat-icon matTooltip="Edit item">create</mat-icon></a>
-          <a (click)="removeDialog(item.id)" 
-            style="cursor: pointer"><mat-icon matTooltip="Remove item">clear</mat-icon></a>
+          <a mat-raised-button routerLink="{{ '/items/edit-item/' + item.id }}">
+            <mat-icon matTooltip="Edit item">create</mat-icon>
+            <span>&nbsp;Edit</span>
+          </a>&nbsp;
+          <a mat-raised-button (click)="removeDialog(item.id)" style="cursor: pointer">
+            <mat-icon matTooltip="Remove item">clear</mat-icon>
+            <span>&nbsp;Remove</span>
+          </a>
         </mat-cell>
       </ng-container>
   

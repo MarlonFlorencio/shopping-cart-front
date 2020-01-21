@@ -21,6 +21,8 @@ import {
 	RegistrationWrapperComponent 
 } from './components';
 
+import { UserService } from '../../shared';
+
 import { RegistrationService } from './services';
 
 @NgModule({
@@ -43,7 +45,8 @@ import { RegistrationService } from './services';
   	RegistrationWrapperComponent
   ],
   providers: [
-    RegistrationService
+    RegistrationService,
+    UserService
   ]
 })
 export class RegisterModule { }

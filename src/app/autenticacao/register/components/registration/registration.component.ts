@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Registration } from '../../models';
 import { RegistrationService } from '../../services';
 
+import { UserService } from '../../../../shared';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -19,7 +21,8 @@ export class RegistrationComponent implements OnInit {
   	private fb: FormBuilder, 
   	private snackBar: MatSnackBar,
     private router: Router,
-    private registrationService: RegistrationService
+    private registrationService: RegistrationService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -43,14 +46,13 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.register(registration)
       .subscribe(
         data => {
-          const msg: string = "Realize o login para acessar o sistema.";
-          this.snackBar.open(msg, "Success", { duration: 5000 });
-          this.router.navigate(['/login']);
+          this.userService.setToken(data['token'])
+          this.router.navigate(['/shop']);
         },
         err => {
           let msg: string = "Please try again in a few moments.";
           if (err.status == 400) {
-            msg = err.error.errors.join(' ');
+            msg = err.error && err.error.message ? err.error.message : 'Bad Request' ;
           }
           this.snackBar.open(msg, "Erro", { duration: 5000 });
         }

@@ -31,7 +31,7 @@ export class NewItemComponent implements OnInit {
   gerarForm() {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
-      price: ['', [Validators.required,  Validators.pattern(/^\$?\d+((,\d{3})+)?(\.\d+)?$/)]]
+      price: ['', [Validators.required,  Validators.pattern(/^\$?\d+((,\d{3})+)?(\.\d+)?$/), Validators.min(0.01)]]
     });
   }
 
@@ -53,8 +53,7 @@ export class NewItemComponent implements OnInit {
         err => {
           let msg: string = "Please try again in a few moments.";
           if (err.status == 400) {
-            console.log(err);
-            msg = err.error.errors.join(' ');
+            msg = err.error && err.error.message ? err.error.message : 'Bad Request' ;
           }
           this.snackBar.open(msg, "Erro", { duration: 5000 });
         }

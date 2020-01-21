@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  sair() {
+  logout() {
   	this.userService.deleteToken();
   	this.router.navigate(['/login']);
   }

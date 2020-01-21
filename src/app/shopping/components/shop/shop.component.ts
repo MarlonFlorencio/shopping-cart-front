@@ -89,7 +89,7 @@ export class ShopComponent implements OnInit {
           this.dataSource = new MatTableDataSource<Item>(records);
         },
         err => {
-          const msg: string = "Erro obtendo lançamentos.";
+          const msg: string = "An error occurred while requesting items";
           this.snackBar.open(msg, "Erro", { duration: 5000 });
         }
       );
@@ -122,7 +122,7 @@ export class ShopComponent implements OnInit {
         err => {
           let msg: string = "Please try again in a few moments.";
           if (err.status == 400) {
-            msg = err.error.errors.join(' ');
+            msg = err.error && err.error.message ? err.error.message : 'Bad Request' ;
           }
           this.snackBar.open(msg, "Erro", { duration: 5000 });
         }

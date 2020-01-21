@@ -12,8 +12,11 @@ export class CartService {
 
   private readonly PATH: string = 'cart';
   private readonly PATH_CLOSE: string = 'close';
-  private readonly PATH_CLOSED_CARTS: string = 'findClosedCarts';
+  private readonly PATH_DRAFTED_CART: string = 'draftedCart';
+  private readonly PATH_CLOSED_CARTS: string = 'closedCarts';
   private readonly PATH_ADD_ITEM = '/add-item/{itemId}';
+  private readonly PATH_REMOVE_ITEM = '/remove-item/{itemId}';
+  private readonly PATH_REMOVE_ONE_ITEM = '/remove-one-item/{itemId}';
 
   constructor(
   	private http: HttpClient,
@@ -27,15 +30,32 @@ export class CartService {
     return this.http.post(url, null, this.httpUtil.headers());
   }
 
+  removeItem(itemId: string): Observable<any> {
+
+    const url: string = env.baseApiUrl + this.PATH + 
+      this.PATH_REMOVE_ITEM.replace('{itemId}', itemId);
+
+    return this.http.post(url, null, this.httpUtil.headers());
+  }
+
+  removeOneItem(itemId: string): Observable<any> {
+
+    const url: string = env.baseApiUrl + this.PATH + 
+      this.PATH_REMOVE_ONE_ITEM.replace('{itemId}', itemId);
+
+    return this.http.post(url, null, this.httpUtil.headers());
+  }
+
   closeCart(): Observable<any> {
+    const url: string = `${env.baseApiUrl}${this.PATH}/${this.PATH_CLOSE}`;
     return this.http.post(
-      env.baseApiUrl + this.PATH + this.PATH_CLOSE,
+      url,
       null,
       this.httpUtil.headers()
     );
   }
 
-  findClosedCarts(
+  getClosedCarts(
     page: number, 
     pageSize: number,
     propertyOrder: string, 
@@ -51,9 +71,18 @@ export class CartService {
     return this.http.get(url + params, this.httpUtil.headers());
   }
 
-  findById(cartId: string): Observable<any> {
+  getDraftedCart(): Observable<any> {
+    const url: string = `${env.baseApiUrl}${this.PATH}/${this.PATH_DRAFTED_CART}`;
     return this.http.get(
-        env.baseApiUrl + this.PATH + '/' + cartId,
+      url,
+      this.httpUtil.headers()
+    );
+  }
+
+  findById(cartId: string): Observable<any> {
+    const url: string = `${env.baseApiUrl}${this.PATH}/${cartId}`;
+    return this.http.get(
+        url,
         this.httpUtil.headers()
     );
   }
