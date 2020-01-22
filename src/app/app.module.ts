@@ -1,15 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import {
-  MatToolbarModule,
-  MatIconModule,
-  MatButtonModule,
-  MatMenuModule,
-} from '@angular/material';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -35,28 +26,23 @@ import {
 } from './shopping'
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
+    SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
-    FlexLayoutModule,
     LoginModule,
     LoginRoutingModule,
     RegisterModule,
     RegisterRoutingModule,
     ItemsModule,
     ItemsRoutingModule,
-    SharedModule,
     ShoppingModule,
     ShoppingRoutingModule,
 
     AppRoutingModule
+  ],
+  declarations: [
+    AppComponent
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

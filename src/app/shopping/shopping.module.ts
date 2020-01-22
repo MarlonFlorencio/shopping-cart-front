@@ -1,36 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { MatPaginatorIntl } from '@angular/material';
 
-import {
-  MatInputModule,
-  MatButtonModule,
-  MatListModule,
-  MatTooltipModule,
-  MatIconModule,
-  MatSnackBarModule,
-  MatTableModule,
-  MatSelectModule,
-  MatRadioModule,
-  MatDatepickerModule, 
-  MatNativeDateModule,
-  MAT_DATE_LOCALE,
-  MatDialogModule,
-  MatPaginatorModule,
-  MatPaginatorIntl,
-  MatSortModule
-} from '@angular/material';
+import { SharedModule } from '../shared/shared.module';
 
 import { 
   HttpUtilService, 
   ItemsService,
+  CartService,
   AdminGuard,
   LoginGuard
 } from '../shared';
-
-import { SharedModule } from '../shared/shared.module';
 
 import { 
   CartComponent,
@@ -42,26 +23,8 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule,
-    FlexLayoutModule,
-    ReactiveFormsModule, 
-    FormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatListModule,
-    MatTooltipModule,
-    MatIconModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatDatepickerModule, 
-    MatNativeDateModule,
-    MatDialogModule,
-    MatPaginatorModule,
-    MatSortModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   declarations: [
     CartComponent,
@@ -72,13 +35,12 @@ import {
   ],
   providers: [
     ItemsService,
+    CartService,
     HttpUtilService,
     MatPaginatorIntl,
     CurrencyPipe,
-    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     AdminGuard,
     LoginGuard
-  ]//,
-  //entryComponents: [ ConfirmarDialog ]
+  ]
 })
 export class ShoppingModule { }

@@ -1,0 +1,83 @@
+import {
+    MatListModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule
+} from '@angular/material';
+
+import {NgModule} from '@angular/core';
+
+@NgModule({
+  imports: [
+    MatListModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule
+  ],
+  exports: [
+    MatListModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule
+  ],
+})
+
+export class MaterialModule {
+}

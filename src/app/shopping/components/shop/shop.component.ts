@@ -1,14 +1,11 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { 
   MatSelect, 
   MatTableDataSource,
   MatSnackBar,
-  MatDialog,
-  MAT_DIALOG_DATA,
   PageEvent,
   Sort
 } from '@angular/material';
@@ -45,8 +42,7 @@ export class ShopComponent implements OnInit {
     private cartService: CartService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private fb: FormBuilder,
-    private dialog: MatDialog) { }
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.page = 0;
