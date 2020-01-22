@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
   }
 
   addOneItem(itemId: string) {
-    this.cartService.addItem(itemId)
+    this.cartService.addOneItem(itemId)
       .subscribe(
         data => {
           this.setCart(data)

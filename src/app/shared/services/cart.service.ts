@@ -15,6 +15,7 @@ export class CartService {
   private readonly PATH_DRAFTED_CART: string = 'draftedCart';
   private readonly PATH_CLOSED_CARTS: string = 'closedCarts';
   private readonly PATH_ADD_ITEM = '/add-item/{itemId}';
+  private readonly PATH_ADD_ONE_ITEM = '/add-one-item/{itemId}';
   private readonly PATH_REMOVE_ITEM = '/remove-item/{itemId}';
   private readonly PATH_REMOVE_ONE_ITEM = '/remove-one-item/{itemId}';
 
@@ -26,6 +27,14 @@ export class CartService {
 
     const url: string = env.baseApiUrl + this.PATH + 
       this.PATH_ADD_ITEM.replace('{itemId}', itemId);
+
+    return this.http.post(url, null, this.httpUtil.headers());
+  }
+
+  addOneItem(itemId: string): Observable<any> {
+
+    const url: string = env.baseApiUrl + this.PATH + 
+      this.PATH_ADD_ONE_ITEM.replace('{itemId}', itemId);
 
     return this.http.post(url, null, this.httpUtil.headers());
   }
