@@ -1,24 +1,18 @@
 language: node_js
 node_js:
-  - "12"
+- '12'
 sudo: false
-
-env:
-    global:
-      - secure: ipm0f9rnxl04RZIAcwQFyZu5fTUAIS/+Q8t5hU4Fyx9n3nO0izaqErz6K9F5vV66mofuDtUa32GUWCGrPu/HdmBwNi33Ra1tu06VkExLvtzNqxbGyoFhMNAb6+LHU9Ddl1bFlB2/gvek487aDshcz+1GR0YsMD6MbYMzoOpjGVvcEGDHpn9HpCLCymWheOdlv9ABla84F9gAAcPSkDP3bzSZJblbX48lrEL8SmnTnp2DoMKig/mWw0EjN5lvyPXiVBNxDqz2ikbONYpyUuKzQl8YQCp4A40Z8QfNxMHKsQvplGuIfFg4slXTbsnWIkKmZhlEJNivu9F280d/BFmbicq/a9X5zR18N8UUvj9INtT/nbErLE9MN/BB9wGtACQ4FwQh5YX8nSU3ZeDpkcZPzt/fAn0L5URlsJhCnAjLTtvyvC/QBuSaKxlFDkJd5CfSHRfRuhJRTSCiwKWN/BhnSDvqmn7pfq5IqMALM7QEnAkolPVbYb1I6dn4N0MQKcsBpMDnMxoaRPFpQko8KoJjAqRkGWwKGY+kQjOVWaACthM7iR4VoxtrSCCOnTiqAhXIXktiJIEboGiSSDFIyRTuEozjf5ik4nUQbeMZ54qfHdyzWKRaUVKkozZTHd2UHVnnretnGmoZBfiuB8WqNQ9KAPoMjeDvl9MbKTC4OR5M+c0=
 
 branches:
   only:
   - master
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 deploy:
   provider: heroku
   skip_cleanup: true
   keep-history: true
-  api-key:
-    secure: $HEROKU_API_KEY
   app: shopping-cart-mf
+  api_key:
+    secure: b32Nxgd7T+mCmHl8qhvTULO6GO8jMnYB2Y4jxUe9c70IfClxpz/VbiqRX/ZX6pygG1YC09JQmPYcKYVye2CBk2XpqKY7HbUl15IhIco795rFKWta72UWZ2HDsiGof8l1XvL5+HriJSMDAQ1LrscrkIvvByJHTnlDZ8By1YagX2TjkFB71xTUZVq9kPct4OAewFOXtIjahi4eIWn/w7rpWnQyRzElo7yUkLSs7Dz3S1jYbyapEPOhpU5RBehzkCqmeosRLCInbyB9wWQl6Na7CW458wxxEqJJJh3ZwJtC7bHKm8kCrOMdTzqvQp+JLIQIO2LjNpItE+i/QvlBkU4oL7NtAQToMMZlzidX3GItQNGdKPNJpZLa7EhX90oUvCyFvq+hVRso3zlwFrL6/WZVJDpFaV7UWfeUb5biWwGmpBx4/SFX/QHqR9APAx9B4znq6TONQPVwl+5Nnc4YXXqy+PCq1O3dXhupqPGCmHhLv0yhF+qKXh6P+FKyDGLZyTEoLRuiu9z1ejLwtm9n6fkwGBNR75lEjM5u0gz5J+N/3F/eeyGWPbZeTmD5qFjht7+gQOmlleExIDq3tOh4+hQp6xEtqaTBke/CD15hO4M8AnvuhoPmSSiCQwvRkeQlQnuI8SZnOVmXR0bE9UbxLi4Yq0nJlwt/nM0AM0gkNS2xyEs=
